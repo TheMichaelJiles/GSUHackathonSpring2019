@@ -8,9 +8,8 @@
 
 </head>
 <body>
-    <?php 
-    keyword = $_POST['keyw']
-    ?>
-    sadasd 
+
+    <?php echo $_POST["query"]; ?>
+
 </body>
 </html>

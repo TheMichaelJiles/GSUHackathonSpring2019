@@ -81,7 +81,7 @@
                     for (var i = 0; i < ingredients.length; i++) {
                         var div = document.createElement("div");
                         var content = document.createTextNode(ingredients[i].name);
-                        
+
                         div.appendChild(content);
                         document.body.appendChild(div);
                         console.log(ingredients[i].name);
@@ -107,12 +107,12 @@
         <img class="homepage-motto" src="assets/LandingPage_Motto.png">
         <div class="row homepage-search-row">
             <img class="homepage-fork-icon" src="assets/LandingPage_KnifeAndForkWhite.png">
-            <form action="/search.html" method="post" style="height: 100%;">
+            <form action="search.php" method="post" style="height: 100%;">
                 <input id="search" name="query" class="homepage-searchbar">
+                <input type="image" src="assets/LandingPage_GoButtonWhite.png" alt="Submit"  />
             </form>
-            <!--<img class="homepage-go-icon" src="assets/LandingPage_GoButtonWhite.png" onClick="getRecipe(document.getElementById('search').value)">-->
-            <!--<input type="image" src="assets/LandingPage_GoButtonWhite.png" alt="Submit" /> -->
-            <button id="button"></button>
+            <!-- <img class="homepage-go-icon" src="assets/LandingPage_GoButtonWhite.png" onClick="getRecipe(document.getElementById('search').value)"> -->
+            <!--<input type="image" sgetRecipe(document.getElementById('search').value)rc="assets/LandingPage_GoButtonWhite.png" alt="Submit" /> -->
         </div>
         <div id="output"></div>
         <a href="" id="sourceLink"></a>
