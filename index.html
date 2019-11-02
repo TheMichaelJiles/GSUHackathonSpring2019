@@ -7,6 +7,52 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-color: #141935;
+        }
+        .homepage-main {
+            display: flex;
+            flex-direction: column;
+            width: 100vw;
+            height: 100vh;
+            /*justify-content: center;*/
+            align-items: center;
+        }
+        .homepage-search-row {
+            margin-top: 64px;
+        }
+        .homepage-searchbar {
+            width: 350px;
+            margin: 0 8px;
+            padding-left: 20px;
+            border-radius: 15px;
+        }
+        .homepage-logo {
+            max-width: 500px;
+            height: auto;
+            margin-bottom: -20px;
+        }
+        .homepage-motto {
+            max-width: 510px;
+            height: auto;
+        }
+        .homepage-fork-icon {
+            max-width: 60px;
+            height: auto;
+        }
+        .homepage-go-icon {
+            max-width: 70px;
+            height: auto;
+        }
+        .text_color-primary {
+            color: #FFF;
+        }
+        .text_color-secondary {
+            color: #141935;
+        }
+    </style>
 </head>
 <body>
 
@@ -15,8 +61,6 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous"></script>
     <script>
-
-	var ingredientsList;
         function getSource(id){
             $.ajax({
                 url:"https://api.spoonacular.com/recipes/"+id+"/information?apiKey=a4f986fc76204b56a35bd812904e53d4",
@@ -33,12 +77,10 @@
                 success: function(res) {
                     // document.getElementById("ingredients")
                     var ingredients = res.ingredients;
-					this.ingredientsList = new Array[];
 
                     for (var i = 0; i < ingredients.length; i++) {
                         var div = document.createElement("div");
-                        var content = document.createTextNode(ingredients[i].amount.us.value + ingredients[i].amount.us.unit + " " + ingredients[i].name);
-						this.ingredientsList.push(ingredients[i].name);
+                        var content = document.createTextNode(ingredients[i].name);
                         
                         div.appendChild(content);
                         document.body.appendChild(div);
@@ -60,10 +102,26 @@
         }
         </script>
 
-    <input id="search"><button onClick="getRecipe(document.getElementById('search').value)">Search</button>
-    <div id="output"></div>
-    <a href="" id="sourceLink"></a>
-    <div id="ingredients"></div>
+    <div class="homepage-main">
+        <img class="homepage-logo" src="assets/LandingPage_QuickChefLogoWhite.png">
+        <img class="homepage-motto" src="assets/LandingPage_Motto.png">
+        <div class="row homepage-search-row">
+            <img class="homepage-fork-icon" src="assets/LandingPage_KnifeAndForkWhite.png">
+            <form action="/search.html" method="post" style="height: 100%;">
+                <input id="search" name="query" class="homepage-searchbar">
+            </form>
+            <!--<img class="homepage-go-icon" src="assets/LandingPage_GoButtonWhite.png" onClick="getRecipe(document.getElementById('search').value)">-->
+            <!--<input type="image" src="assets/LandingPage_GoButtonWhite.png" alt="Submit" /> -->
+            <button id="button"></button>
+        </div>
+        <div id="output"></div>
+        <a href="" id="sourceLink"></a>
+        <div id="ingredients"></div>
+    </div>
 
+    <script>
+        var button = document.getElementById("button");
+        button.innerHTML = "<img src='assets/LandingPage_GoButtonWhite.png' alt='Submit' />";
+    </script>
 </body>
 </html>
