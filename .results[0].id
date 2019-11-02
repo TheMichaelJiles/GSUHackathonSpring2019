@@ -1,0 +1,186 @@
+[1mdiff --git a/backup/index_backup.html b/backup/index_backup.html[m
+[1mdeleted file mode 100644[m
+[1mindex caaccbe..0000000[m
+[1m--- a/backup/index_backup.html[m
+[1m+++ /dev/null[m
+[36m@@ -1,65 +0,0 @@[m
+[31m-<!DOCTYPE html>[m
+[31m-<html lang="en">[m
+[31m-<head>[m
+[31m-    <meta charset="UTF-8">[m
+[31m-    <meta name="viewport" content="width=device-width, initial-scale=1.0">[m
+[31m-    <meta http-equiv="X-UA-Compatible" content="ie=edge">[m
+[31m-    <title>Document</title>[m
+[31m-[m
+[31m-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">[m
+[31m-</head>[m
+[31m-<body>[m
+[31m-[m
+[31m-        <script[m
+[31m-        src="https://code.jquery.com/jquery-3.4.1.min.js"[m
+[31m-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="[m
+[31m-        crossorigin="anonymous"></script>[m
+[31m-    <script>[m
+[31m-        function getSource(id){[m
+[31m-            $.ajax({[m
+[31m-                url:"https://api.spoonacular.com/recipes/"+id+"/information?apiKey=a4f986fc76204b56a35bd812904e53d4",[m
+[31m-                success: function(res) {[m
+[31m-                    document.getElementById("sourceLink").innerHTML=res.sourceUrl[m
+[31m-                    document.getElementById("sourceLink").href=res.sourceUrl[m
+[31m-                }[m
+[31m-            });[m
+[31m-        }[m
+[31m-[m
+[31m-        function getIngredients(id) {[m
+[31m-            $.ajax({[m
+[31m-                url:"https://api.spoonacular.com/recipes/" + id + "/ingredientWidget.json?apiKey=a4f986fc76204b56a35bd812904e53d4",[m
+[31m-                success: function(res) {[m
+[31m-                    // document.getElementById("ingredients")[m
+[31m-                    var ingredients = res.ingredients;[m
+[31m-[m
+[31m-                    for (var i = 0; i < ingredients.length; i++) {[m
+[31m-                        var div = document.createElement("div");[m
+[31m-                        var content = document.createTextNode(ingredients[i].name);[m
+[31m-                        [m
+[31m-                        div.appendChild(content);[m
+[31m-                        document.body.appendChild(div);[m
+[31m-                        console.log(ingredients[i].name);[m
+[31m-                    }[m
+[31m-                }[m
+[31m-            });[m
+[31m-        }[m
+[31m-[m
+[31m-        function getRecipe(q){[m
+[31m-            $.ajax({[m
+[31m-                url:"https://api.spoonacular.com/recipes/search?apiKey=a4f986fc76204b56a35bd812904e53d4&number=1&query="+q,[m
+[31m-                success: function(res) {[m
+[31m-                    document.getElementById("output").innerHTML="<h1>"+res.results[0].title+"</h1><br><img src='"+res.baseUri+res.results[0].image+"' width='400' /><br>Ready in "+res.results[0].readyInMinutes+" minutes"[m
+[31m-                    getSource(res.results[0].id)[m
+[31m-                    getIngredients(res.results[0].id)[m
+[31m-                }[m
+[31m-            });[m
+[31m-        }[m
+[31m-        </script>[m
+[31m-[m
+[31m-    <input id="search"><button onClick="getRecipe(document.getElementById('search').value)">Search</button>[m
+[31m-    <div id="output"></div>[m
+[31m-    <a href="" id="sourceLink"></a>[m
+[31m-    <div id="ingredients"></div>[m
+[31m-[m
+[31m-</body>[m
+[31m-</html>[m
+\ No newline at end of file[m
+[1mdiff --git a/backup/main.js b/backup/main.js[m
+[1mdeleted file mode 100644[m
+[1mindex f7b5247..0000000[m
+[1m--- a/backup/main.js[m
+[1m+++ /dev/null[m
+[36m@@ -1,39 +0,0 @@[m
+[31m-function getSource(id){[m
+[31m-    $.ajax({[m
+[31m-        url:"https://api.spoonacular.com/recipes/"+id+"/information?apiKey=a4f986fc76204b56a35bd812904e53d4",[m
+[31m-        success: function(res) {[m
+[31m-            document.getElementById("sourceLink").innerHTML=res.sourceUrl[m
+[31m-            document.getElementById("sourceLink").href=res.sourceUrl[m
+[31m-        }[m
+[31m-    });[m
+[31m-}[m
+[31m-[m
+[31m-function getIngredients(id) {[m
+[31m-    $.ajax({[m
+[31m-        url:"https://api.spoonacular.com/recipes/" + id + "/ingredientWidget.json?apiKey=a4f986fc76204b56a35bd812904e53d4",[m
+[31m-        success: function(res) {[m
+[31m-            // document.getElementById("ingredients")[m
+[31m-            var ingredients = res.ingredients;[m
+[31m-[m
+[31m-            for (var i = 0; i < ingredients.length; i++) {[m
+[31m-                var div = document.createElement("div");[m
+[31m-                var content = document.createTextNode(ingredients[i].name);[m
+[31m-[m
+[31m-                div.appendChild(content);[m
+[31m-                document.body.appendChild(div);[m
+[31m-                console.log(ingredients[i].name);[m
+[31m-            }[m
+[31m-        }[m
+[31m-    });[m
+[31m-}[m
+[31m-[m
+[31m-function getRecipe(q){[m
+[31m-    $.ajax({[m
+[31m-        url:"https://api.spoonacular.com/recipes/search?apiKey=a4f986fc76204b56a35bd812904e53d4&number=1&query="+q,[m
+[31m-        success: function(res) {[m
+[31m-            document.getElementById("output").innerHTML="<h1>"+res.results[0].title+"</h1><br><img src='"+res.baseUri+res.results[0].image+"' width='400' /><br>Ready in "+res.results[0].readyInMinutes+" minutes"[m
+[31m-            getSource(res.results[0].id)[m
+[31m-            getIngredients(res.results[0].id)[m
+[31m-        }[m
+[31m-    });[m
+[31m-}[m
+\ No newline at end of file[m
+[1mdiff --git a/index.html b/index.html[m
+[1mindex 64cbf53..36beb42 100644[m
+[1m--- a/index.html[m
+[1m+++ b/index.html[m
+[36m@@ -60,6 +60,8 @@[m
+         src="https://code.jquery.com/jquery-3.4.1.min.js"[m
+         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="[m
+         crossorigin="anonymous"></script>[m
+[32m+[m[32m    <!-- <script src="main.js"></script> -->[m[41m[m
+[32m+[m[41m[m
+ [m
+     <div class="homepage-main">[m
+         <img class="homepage-logo" src="assets/LandingPage_QuickChefLogoWhite.png">[m
+[36m@@ -75,9 +77,16 @@[m
+         </div>[m
+     </div>[m
+ [m
+[32m+[m[32m    <!--[m[41m[m
+[32m+[m[32m    <div id="output"></div>[m[41m[m
+[32m+[m[32m    <a href="" id="sourceLink"></a>[m[41m[m
+[32m+[m[32m    <div id="ingredients"></div>[m[41m[m
+[32m+[m[32m    -->[m[41m[m
+[32m+[m[41m    [m
+     <script>[m
+         var button = document.getElementById("button");[m
+         button.innerHTML = "<img src='assets/LandingPage_GoButtonWhite.png' alt='Submit' />";[m
+     </script>[m
+[32m+[m[32m-->[m[41m[m
+ </body>[m
+ </html>[m
+[1mdiff --git a/search.php b/search.php[m
+[1mindex 1af769e..30dcd10 100644[m
+[1m--- a/search.php[m
+[1m+++ b/search.php[m
+[36m@@ -1,6 +1,8 @@[m
+ <!DOCTYPE html>[m
+ <html lang="en">[m
+ <head>[m
+[32m+[m[32m<script src="main.js"></script>[m[41m[m
+[32m+[m[41m[m
+     <meta charset="UTF-8">[m
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">[m
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">[m
+[36m@@ -8,14 +10,19 @@[m
+ [m
+ </head>[m
+ <body>[m
+[31m-    <script src="main.js"></script>[m
+[31m-    <script>[m
+[31m-        var query = <?php $_POST["query"]; ?>[m
+[31m-        getRecipe(query);[m
+[31m-    </script>[m
+[32m+[m[32m<script[m[41m[m
+[32m+[m[32m        src="https://code.jquery.com/jquery-3.4.1.min.js"[m[41m[m
+[32m+[m[32m        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="[m[41m[m
+[32m+[m[32m        crossorigin="anonymous"></script>[m[41m[m
+ [m
+     <div id="output"></div>[m
+     <a href="" id="sourceLink"></a>[m
+     <div id="ingredients"></div>[m
+[32m+[m[41m[m
+[32m+[m[32m    <script>[m[41m[m
+[32m+[m[32m        var query = '<?php $_POST["query"]; ?>';[m[41m[m
+[32m+[m[32m        console.log(query);[m[41m[m
+[32m+[m[32m        getRecipe(query);[m[41m[m
+[32m+[m[32m    </script>[m[41m[m
+ </body>[m
+ </html>[m

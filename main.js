@@ -29,11 +29,9 @@ function getIngredients(id) {
 
 function getRecipe(q){
     $.ajax({
-        url:"https://api.spoonacular.com/recipes/search?apiKey=a4f986fc76204b56a35bd812904e53d4&number=1&query="+q,
+        url:"https://api.spoonacular.com/recipes/search?apiKey=a4f986fc76204b56a35bd812904e53d4&number=1&query=" + q,
         success: function(res) {
             document.getElementById("output").innerHTML="<h1>"+res.results[0].title+"</h1><br><img src='"+res.baseUri+res.results[0].image+"' width='400' /><br>Ready in "+res.results[0].readyInMinutes+" minutes"
-            getSource(res.results[0].id)
-            getIngredients(res.results[0].id)
         }
     });
 }
