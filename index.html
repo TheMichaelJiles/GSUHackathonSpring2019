@@ -15,6 +15,8 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous"></script>
     <script>
+
+	var ingredientsList;
         function getSource(id){
             $.ajax({
                 url:"https://api.spoonacular.com/recipes/"+id+"/information?apiKey=a4f986fc76204b56a35bd812904e53d4",
@@ -31,10 +33,12 @@
                 success: function(res) {
                     // document.getElementById("ingredients")
                     var ingredients = res.ingredients;
+					this.ingredientsList = new Array[];
 
                     for (var i = 0; i < ingredients.length; i++) {
                         var div = document.createElement("div");
-                        var content = document.createTextNode(ingredients[i].name);
+                        var content = document.createTextNode(ingredients[i].amount.us.value + ingredients[i].amount.us.unit + " " + ingredients[i].name);
+						this.ingredientsList.push(ingredients[i].name);
                         
                         div.appendChild(content);
                         document.body.appendChild(div);
