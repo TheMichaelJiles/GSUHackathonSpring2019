@@ -8,8 +8,14 @@
 
 </head>
 <body>
+    <script src="main.js"></script>
+    <script>
+        var query = <?php $_POST["query"]; ?>
+        getRecipe(query);
+    </script>
 
-    <?php echo $_POST["query"]; ?>
-
+    <div id="output"></div>
+    <a href="" id="sourceLink"></a>
+    <div id="ingredients"></div>
 </body>
 </html>
