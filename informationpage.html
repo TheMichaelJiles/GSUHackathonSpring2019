@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <meta charset="utf-8" />
+    <title></title>
+	<style>
+		body {
+			overflow-x: hidden;
+		}
+		section {
+			height: 33.33vh;
+			width: auto;
+			padding: 16px;
+		}
+		.sectionOne {
+			background: #141935;
+		}
+		.sectionTwo {
+			background: white;
+		}
+		.textColorPrimary {
+			font-family: "Britannica Bold";
+			color: #FFF
+		}
+		.textColorDark {
+			font-family: "Britannica Bold";
+			color: #141935;
+		}
+		.subtextColorPrimary {
+			font-family: "Avenir";
+			margin-left: 24px;
+			color: #FFF;
+		}
+		.subtextColorSecondary {
+			font-family: "Avenir";
+			margin-left: 24px;
+			color: #141935;
+		}
+    </style>
+</head>
+<body>
+</script>
+	<div id="rectangle">
+
+	<section class="sectionOne">
+	<h2 class="textColorPrimary">Personal Information</h2><br>
+	<div class="row">
+		<label class="subtextColorPrimary" for="firstName"><b>First Name:</b></label>
+		<input type="text" placeholder="Enter First Name" name="FirstName" required>
+
+		<label class="subtextColorPrimary" for="lastName"><b>Last Name:</b></label>
+		<input type="text" placeholder="Enter Last Name" name="LastName" required>
+	</div>
+	<br><br>
+	<div class="row">
+		<label class="subtextColorPrimary" for="birthday"><b>Birthday:</b></label>
+		<input type="text" placeholder="Enter Birthday" name="Birthday" required>
+	</div>
+	</section>
+	
+	<section class = "sectionTwo">
+	<h2 class="textColorDark">Shipping Information</h2><br>
+	<label class="subtextColorSecondary" for="addressLine"><b>Address Line:</b></label>
+    <input type="text" placeholder="Enter Address" name="AddressLine" required>
+
+	<label class="subtextColorSecondary" for="city"><b>City:</b></label>
+    <input type="text" placeholder="Enter City" name="City" required>
+
+	<label class="subtextColorSecondary" for="state"><b>State:</b></label>
+    <input type="text" placeholder="Enter State" name="State" required>
+	<br><br>
+
+    <label class="subtextColorSecondary" for="postalCode"><b>Postal Code:</b></label>
+    <input type="text" placeholder="Enter Postal Code" name="PostalCode" required>
+	</section class=sectionOne>
+
+	<section class="sectionOne">
+	<h2 class="textColorPrimary">Contact Information</h2><br>
+    <label class="subtextColorPrimary" for="emailAddress"><b>Email Address:</b></label>
+    <input type="text" placeholder="Enter EmailAddress" name="EmailAddress" required>
+	
+    <label class="subtextColorPrimary" for="birthday"><b>Birthday:</b></label>
+    <input type="text" placeholder="Enter Birthday" name="Birthday" required>
+	
+	<br><br>
+    <label class="subtextColorPrimary" for="phoneNumber"><b>Phone Number:</b></label>
+    <input type="text" placeholder="Enter Phone Number" name="PhoneNumber" required>
+
+	<input type="button" value="Order" onClick="location.href='confirmation.html'"">
+	</section>
+
+	<script>
+		const button = document.querySelector('input');
+
+		button.addEventListener('click', updateButton);
+
+		function updateButton() {
+			console.log("tes");
+		}
+	</script>
+  
+</body>
+</html>

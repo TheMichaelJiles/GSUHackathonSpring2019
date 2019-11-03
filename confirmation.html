@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <meta charset="utf-8" />
+    <title></title>
+	<style>
+		body {
+            background-color: #141935;
+        }
+		.center-me {
+			display: flex;
+			align-self: center;
+			align-content: center;
+			justify-content: center;
+		}
+		.final-graphic {
+						max-width: 900px;
+			height: auto;
+		}
+		#triangle-topright {
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 10;
+            width: 0;
+            height: 0;
+            border-top: 200px solid white;
+            border-left: 200px solid transparent;
+        }
+	</style>
+</head>
+<body>
+	<div id="triangle-topright"></div>
+	<div class="center-me">
+	<img class="final-graphic" src="assets/QuickChef_Confirmation-12.png">
+	</div>
+</body>
+</html>
