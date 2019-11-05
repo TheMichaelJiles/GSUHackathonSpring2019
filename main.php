@@ -2,7 +2,7 @@
     $ingredients;
 
     function getRecipeTitle($query) {
-        $apiKey = "ea823db66af842d9a8287e8e97b872fb";
+        $apiKey = "32267ae26de746f284d459133d968bcf";
 
         
         $overviewAPI = "https://api.spoonacular.com/recipes/search?apiKey=" .$apiKey. "&number=1&query=" .$query;
@@ -26,7 +26,7 @@
     }
 
     function getIngredients($id) {
-        $apiKey = "ea823db66af842d9a8287e8e97b872fb";
+        $apiKey = "32267ae26de746f284d459133d968bcf";
 
         $ingredientsAPI = "https://api.spoonacular.com/recipes/" .$id. "/ingredientWidget.json?apiKey=" .$apiKey;
         $jsonFile = file_get_contents($ingredientsAPI);
@@ -38,7 +38,7 @@
     }
 
     function getSteps($id) {
-        $apiKey = "ea823db66af842d9a8287e8e97b872fb";
+        $apiKey = "32267ae26de746f284d459133d968bcf";
 
         $stepsAPI = "https://api.spoonacular.com/recipes/" .$id. "/analyzedInstructions?apiKey=" .$apiKey;
         $jsonFile = file_get_contents($stepsAPI);

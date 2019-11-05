@@ -59,6 +59,7 @@
         session_start();
 
         $query = $_POST["query"];
+        
         $overview = getRecipeTitle($query);
 
         $id = $overview["id"];
@@ -70,6 +71,7 @@
         $steps = getSteps($id);
 
         $_SESSION['ingredients'] = $ingredients;
+        
     ?>
 
     <div class="row main">
